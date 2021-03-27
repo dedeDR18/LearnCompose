@@ -1,17 +1,15 @@
 package com.example.mycompose
 
-import android.app.ActionBar
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.mycompose.ui.theme.MyComposeTheme
@@ -28,7 +26,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MyApp(){
     MyComposeTheme() {
-        Surface(color = Color.Cyan) {
+        Column( modifier = Modifier.padding(24.dp)) {
+            ShowImage()
             Greeting("DEDE DARI RAHMADI")
         }
     }
@@ -36,13 +35,18 @@ fun MyApp(){
 
 @Composable
 fun Greeting(name: String) {
-    Column() {
-        Text(text = "Hello world $name!",
-            modifier = Modifier.padding(24.dp)
-        )
+        Text(text = "Hello world $name!")
         Text(text = "Selamat Datang !!!")
         Text(text = "Kita Cobain Compose yuk..")
-    }
+
+}
+
+@Composable
+fun ShowImage(){
+    Image(
+        painter = painterResource(id = R.drawable.jetpack),
+        contentDescription = null
+        )
 }
 
 @Preview(showBackground = true)
