@@ -1,8 +1,10 @@
 package com.example.mycompose
 
+import android.app.ActionBar
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -34,9 +36,13 @@ fun MyApp(){
 
 @Composable
 fun Greeting(name: String) {
+    Column() {
         Text(text = "Hello world $name!",
-        modifier = Modifier.padding(24.dp)
-            )
+            modifier = Modifier.padding(24.dp)
+        )
+        Text(text = "Selamat Datang !!!")
+        Text(text = "Kita Cobain Compose yuk..")
+    }
 }
 
 @Preview(showBackground = true)
