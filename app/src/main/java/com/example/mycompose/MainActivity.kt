@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -29,6 +30,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MyApp(){
     MyComposeTheme() {
+
         Column( modifier = Modifier.padding(24.dp)) {
             ShowImage()
             Greeting("DEDE DARI RAHMADI")
@@ -38,9 +40,10 @@ fun MyApp(){
 
 @Composable
 fun Greeting(name: String) {
-        Text(text = "Hello world $name!")
-        Text(text = "Selamat Datang !!!")
-        Text(text = "Kita Cobain Compose yuk..")
+    val typography = MaterialTheme.typography
+        Text(text = "Hello world $name!", style = typography.h6)
+        Text(text = "Selamat Datang !!!", style = typography.body2)
+        Text(text = "Kita Cobain Compose yuk..", style = typography.body2)
 
 }
 
