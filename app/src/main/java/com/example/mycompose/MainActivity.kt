@@ -33,6 +33,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MyApp(){
+    val counterState = remember { mutableStateOf(0)}
     MyComposeTheme() {
         Column( modifier = Modifier.padding(24.dp)) {
             ShowImage()
@@ -42,6 +43,12 @@ fun MyApp(){
             ShowList()
             Spacer(Modifier.height(16.dp))
             ClickCount()
+            Spacer(modifier = Modifier.height(16.dp))
+            Counter(
+                count = counterState.value,
+                updateCount = { newCount ->
+                    counterState.value = newCount
+            })
         }
     }
 }
@@ -85,6 +92,13 @@ fun ClickCount(){
     val count = remember { mutableStateOf(0)}
     Button(onClick = {count.value++}) {
         Text("sudah diclick ${count.value} kali")
+    }
+}
+
+@Composable
+fun Counter(count: Int, updateCount : (Int) -> Unit){
+    Button(onClick = { updateCount(count+1)} ) {
+        Text("sudah diclick $count kali")
     }
 }
 
