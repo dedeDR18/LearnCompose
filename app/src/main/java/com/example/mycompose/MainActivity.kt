@@ -13,8 +13,10 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -35,21 +37,32 @@ class MainActivity : ComponentActivity() {
 fun MyApp(){
     val counterState = remember { mutableStateOf(0)}
     MyComposeTheme() {
-        Column( modifier = Modifier.padding(24.dp)) {
-            ShowImage()
-            Spacer(Modifier.height(16.dp))
-            Greeting("DEDE DARI RAHMADI")
-            Spacer(Modifier.height(16.dp))
-            ShowList()
-            Spacer(Modifier.height(16.dp))
-            ClickCount()
-            Spacer(modifier = Modifier.height(16.dp))
-            Counter(
-                count = counterState.value,
-                updateCount = { newCount ->
-                    counterState.value = newCount
-            })
+        Column(modifier = Modifier
+            .fillMaxHeight()
+            .padding(24.dp)) {
+            Column( modifier = Modifier
+                .weight(1f))
+            {
+                ShowImage()
+                Spacer(Modifier.height(16.dp))
+                Greeting("DEDE DARI RAHMADI")
+                Spacer(Modifier.height(16.dp))
+                ShowList()
+                Spacer(Modifier.height(16.dp))
+                ClickCount()
+                Spacer(modifier = Modifier.height(16.dp))
+            }
+            Column(modifier = Modifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+                Counter(
+                    count = counterState.value,
+                    updateCount = { newCount ->
+                        counterState.value = newCount
+                    })
+            }
         }
+
     }
 }
 
@@ -98,8 +111,9 @@ fun ClickCount(){
 @Composable
 fun Counter(count: Int, updateCount : (Int) -> Unit){
     Button(onClick = { updateCount(count+1)} ) {
-        Text("sudah diclick $count kali")
-    }
+            Text("sudah diclick $count kali")
+        }
+
 }
 
 @Preview(showBackground = true)
