@@ -6,10 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Button
-import androidx.compose.material.Divider
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -110,7 +107,10 @@ fun ClickCount(){
 
 @Composable
 fun Counter(count: Int, updateCount : (Int) -> Unit){
-    Button(onClick = { updateCount(count+1)} ) {
+    Button(onClick = { updateCount(count+1)},
+        colors = ButtonDefaults.buttonColors(backgroundColor = if (count > 5) Color.Red else Color.Green)
+
+    ) {
             Text("sudah diclick $count kali")
         }
 
