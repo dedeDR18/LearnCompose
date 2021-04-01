@@ -13,7 +13,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.focus.focusModifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextOverflow
@@ -100,7 +99,8 @@ fun ShowList(listNama: List<String> = listOf("Dede", "Dari", "Rahmadi")){
 @Composable
 fun ClickCount(){
     val count = remember { mutableStateOf(0)}
-    Button(onClick = {count.value++}) {
+    Button(onClick = {count.value++},
+        colors = ButtonDefaults.buttonColors(backgroundColor = if (count.value > 5) Color.Red else Color.Green)) {
         Text("sudah diclick ${count.value} kali")
     }
 }
