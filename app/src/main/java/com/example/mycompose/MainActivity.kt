@@ -66,7 +66,7 @@ fun MyApp(){
 fun Greeting(name: String) {
     val typography = MaterialTheme.typography
 
-        Text(text = "Hello $name!", style = typography.h6)
+        Text(text = "Hello $name!", style = typography.h2)
         Text(text = "Selamat Datang !!!", style = typography.body2)
         Text(text = "Kita Cobain Compose yuk.. wkwkwkwkwkwkwkkwkwkwkwkwkwkwkwkwkwwkwkwkwkwkkwkwkwkwkwkwkwkwkwkwkkwkwkwkwkwkwkwkwkwkwkwkkwkwkwkwkwkwkasdasdasdkjashdkjashdkjhaskjdakshdjkahskdajsk",
             style = typography.body2,
