@@ -68,7 +68,7 @@ fun Greeting(name: String) {
 
         Text(text = "Hello $name!", style = typography.h2)
         Text(text = "Selamat Datang !!!", style = typography.body2)
-        Text(text = "Kita Cobain Compose yuk.. wkwkwkwkwkwkwkkwkwkwkwkwkwkwkwkwkwwkwkwkwkwkkwkwkwkwkwkwkwkwkwkwkkwkwkwkwkwkwkwkwkwkwkwkkwkwkwkwkwkwkasdasdasdkjashdkjashdkjhaskjdakshdjkahskdajsk",
+        Text(text = "Kita Cobain Compose yuk.. wkwkwkwkwkkwkwkwkwkwkwkwkwkwkwwkwkwkwkwkkwkwkwkwkwkwkwkwkwkwkkwkwkwkwkwkwkwkwkwkwkwkkwkwkwkwkwkwkasdasdasdkjashdkjashdkjhaskjdakshdjkahskdajsk",
             style = typography.body2,
             maxLines = 2,
             overflow = TextOverflow.Ellipsis
