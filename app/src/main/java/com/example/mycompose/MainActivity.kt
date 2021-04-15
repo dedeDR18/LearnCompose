@@ -5,6 +5,8 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
@@ -30,7 +32,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun MyApp(){
+fun MyApp(names: List<String> = List(1000) { "Hello Android #$it" }){
     val counterState = remember { mutableStateOf(0)}
     MyComposeTheme() {
         Column(modifier = Modifier
@@ -43,7 +45,7 @@ fun MyApp(){
                 Spacer(Modifier.height(16.dp))
                 Greeting("DEDE DARI RAHMADI")
                 Spacer(Modifier.height(16.dp))
-                ShowList()
+                NameList(names, Modifier.weight(1f))
                 Spacer(Modifier.height(16.dp))
                 ClickCount()
                 Spacer(modifier = Modifier.height(16.dp))
@@ -114,6 +116,21 @@ fun Counter(count: Int, updateCount : (Int) -> Unit){
             Text("sudah diclick $count kali")
         }
 
+}
+
+@Composable
+fun NameList(names: List<String>, modifier: Modifier = Modifier){
+    LazyColumn(modifier = modifier) {
+        items(items = names) { name ->
+            Greeting(name = name)
+            Divider(color = Color.Black)
+        }
+    }
+}
+
+@Composable
+fun Greetingg(name: String) {
+    Text(text = "Hello $name!", modifier = Modifier.padding(24.dp))
 }
 
 @Preview(showBackground = true)
